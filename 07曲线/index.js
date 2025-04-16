@@ -2,8 +2,7 @@ import * as THREE from 'three';
 import {
     OrbitControls
 } from 'three/addons/controls/OrbitControls.js';
-// import mesh from './mesh.js';
-import mesh from './muxing.js';
+import mesh from './mesh.js';
 
 const scene = new THREE.Scene();
 
@@ -15,15 +14,14 @@ scene.add(axesHelper);
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-const camera = new THREE.PerspectiveCamera(60, width / height, 1, 10000);
-camera.position.set(200, 200, 200);
+const camera = new THREE.PerspectiveCamera(60, width / height, 1, 1000);
+camera.position.set(0, 100, 200);
 camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height)
 
 function render() {
-    mesh.material.map.offset.y += 0.0;
     renderer.render(scene, camera);
     requestAnimationFrame(render);
 }
